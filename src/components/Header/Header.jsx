@@ -61,21 +61,14 @@ function Header() {
 						</a>
 
 						<a
-							href="#reviews"
+							href="#testimonials"
 							className="text-[13px] transition-opacity duration-300 hover:opacity-50"
 						>
 							Отзывы
 						</a>
 
 						<a
-							href="#faq"
-							className="text-[13px] transition-opacity duration-300 hover:opacity-50"
-						>
-							FAQ
-						</a>
-
-						<a
-							href="#contacts"
+							href="#contact"
 							className="text-[13px] transition-opacity duration-300 hover:opacity-50"
 						>
 							Контакты

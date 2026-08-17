@@ -116,13 +116,6 @@ function Hero() {
 					</a>
 				</div>
 			</div>
-
-			{/* Scroll indicator */}
-			<div className="hero-scroll absolute bottom-8 right-6 z-10 hidden items-center gap-3 text-white lg:flex">
-				<span className="text-[9px] uppercase tracking-[0.25em]">Scroll</span>
-
-				<span className="h-px w-12 bg-white/50" />
-			</div>
 		</section>
 	);
 }

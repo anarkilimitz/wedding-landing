@@ -136,7 +136,7 @@ function CTA() {
 					<div>
 						<p className="text-[#151515]/50">География</p>
 
-						<p className="mt-2">Россия · Европа</p>
+						<p className="mt-2">Россия</p>
 					</div>
 				</div>
 			</div>

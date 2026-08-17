@@ -25,17 +25,12 @@ const menuItems = [
 	{
 		number: '05',
 		label: 'Отзывы',
-		href: '#reviews',
+		href: '#testimonials',
 	},
 	{
 		number: '06',
-		label: 'FAQ',
-		href: '#faq',
-	},
-	{
-		number: '07',
 		label: 'Контакты',
-		href: '#contacts',
+		href: '#contact',
 	},
 ];
 
