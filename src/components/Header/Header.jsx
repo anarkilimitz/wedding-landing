@@ -78,7 +78,7 @@ function Header() {
 					{/* Actions */}
 					<div className="flex items-center gap-3">
 						<a
-							href="#contacts"
+							href="#contact"
 							className="hidden cursor-pointer rounded-full border border-[#151515]/40 px-5 py-3 text-[12px] transition-all duration-300 hover:bg-[#151515] hover:text-white sm:block"
 						>
 							Связаться с нами

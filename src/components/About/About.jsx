@@ -110,7 +110,7 @@ function About() {
 						</p>
 
 						<a
-							href="#contacts"
+							href="#contact"
 							className="about-link mt-10 flex w-fit items-center gap-4 text-[11px] uppercase tracking-[0.2em]"
 						>
 							<span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#151515]/30 transition-all duration-300 hover:bg-[#151515] hover:text-white">

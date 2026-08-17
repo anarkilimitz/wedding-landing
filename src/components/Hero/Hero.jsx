@@ -105,7 +105,7 @@ function Hero() {
 					</p>
 
 					<a
-						href="#contacts"
+						href="#contact"
 						className="group flex items-center gap-4 text-[11px] uppercase tracking-[0.2em]"
 					>
 						<span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/50 transition-all duration-500 group-hover:bg-white group-hover:text-[#151515]">

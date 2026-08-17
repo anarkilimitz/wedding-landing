@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -6,6 +6,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 function CTA() {
 	const sectionRef = useRef(null);
+
+	const [status, setStatus] = useState('idle');
 
 	useLayoutEffect(() => {
 		const ctx = gsap.context(() => {
@@ -63,6 +65,37 @@ function CTA() {
 		return () => ctx.revert();
 	}, []);
 
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		setStatus('sending');
+
+		const form = event.currentTarget;
+		const formData = new FormData(form);
+
+		formData.append('access_key', 'YOUR_ACCESS_KEY');
+
+		formData.append('subject', 'Новая заявка с сайта Wedding');
+
+		try {
+			const response = await fetch('https://api.web3forms.com/submit', {
+				method: 'POST',
+				body: formData,
+			});
+
+			const data = await response.json();
+
+			if (data.success) {
+				setStatus('success');
+				form.reset();
+			} else {
+				setStatus('error');
+			}
+		} catch {
+			setStatus('error');
+		}
+	};
+
 	return (
 		<section
 			ref={sectionRef}
@@ -81,7 +114,7 @@ function CTA() {
 
 				{/* Main */}
 				<div className="grid gap-16 lg:grid-cols-12 lg:gap-10">
-					<div className="lg:col-span-9">
+					<div className="lg:col-span-7">
 						<h2 className="cta-title max-w-6xl font-serif text-6xl leading-[0.9] tracking-[-0.05em] sm:text-7xl lg:text-[9rem]">
 							Давайте
 							<br />
@@ -91,21 +124,177 @@ function CTA() {
 						</h2>
 					</div>
 
-					<div className="cta-info flex flex-col justify-end lg:col-span-3">
-						<p className="max-w-xs text-sm leading-[1.7] text-[#151515]/65">
+					<div className="cta-info flex flex-col justify-end lg:col-span-5">
+						<p className="max-w-md text-sm leading-[1.7] text-[#151515]/65">
 							Расскажите немного о вашем событии. Мы свяжемся с вами, чтобы
 							обсудить детали.
 						</p>
 
-						<a
-							href="#contact-form"
-							className="group mt-8 flex w-fit items-center gap-5 border-b border-[#151515]/40 pb-3 text-xs uppercase tracking-[0.2em]"
+						{/* Form */}
+						<form
+							id="contact-form"
+							onSubmit={handleSubmit}
+							className="mt-10 space-y-5"
 						>
-							Обсудить событие
-							<span className="text-lg transition-transform duration-300 group-hover:translate-x-2">
-								→
-							</span>
-						</a>
+							{/* Name */}
+							<div>
+								<label
+									htmlFor="name"
+									className="mb-2 block text-[10px] uppercase tracking-[0.18em] text-[#151515]/50"
+								>
+									Имя
+								</label>
+
+								<input
+									id="name"
+									name="name"
+									type="text"
+									required
+									placeholder="Ваше имя"
+									className="w-full border-b border-[#151515]/30 bg-transparent py-3 text-sm outline-none placeholder:text-[#151515]/40 focus:border-[#151515] transition-colors"
+								/>
+							</div>
+
+							{/* Phone */}
+							<div>
+								<label
+									htmlFor="phone"
+									className="mb-2 block text-[10px] uppercase tracking-[0.18em] text-[#151515]/50"
+								>
+									Телефон
+								</label>
+
+								<input
+									id="phone"
+									name="phone"
+									type="tel"
+									required
+									placeholder="+7 999 999 99 99"
+									className="w-full border-b border-[#151515]/30 bg-transparent py-3 text-sm outline-none placeholder:text-[#151515]/40 focus:border-[#151515] transition-colors"
+								/>
+							</div>
+
+							{/* Email */}
+							<div>
+								<label
+									htmlFor="email"
+									className="mb-2 block text-[10px] uppercase tracking-[0.18em] text-[#151515]/50"
+								>
+									Email
+								</label>
+
+								<input
+									id="email"
+									name="email"
+									type="email"
+									required
+									placeholder="your@email.ru"
+									className="w-full border-b border-[#151515]/30 bg-transparent py-3 text-sm outline-none placeholder:text-[#151515]/40 focus:border-[#151515] transition-colors"
+								/>
+							</div>
+
+							{/* Event type */}
+							<div>
+								<label
+									htmlFor="event"
+									className="mb-2 block text-[10px] uppercase tracking-[0.18em] text-[#151515]/50"
+								>
+									Тип мероприятия
+								</label>
+
+								<select
+									id="event"
+									name="event"
+									required
+									defaultValue=""
+									className="w-full border-b border-[#151515]/30 bg-transparent py-3 text-sm outline-none focus:border-[#151515] transition-colors"
+								>
+									<option value="" disabled>
+										Выберите тип
+									</option>
+
+									<option value="Свадьба">Свадьба</option>
+									<option value="Частное событие">Частное событие</option>
+									<option value="Корпоративное мероприятие">
+										Корпоративное мероприятие
+									</option>
+									<option value="Концепция и декор">Концепция и декор</option>
+								</select>
+							</div>
+
+							{/* Message */}
+							<div>
+								<label
+									htmlFor="message"
+									className="mb-2 block text-[10px] uppercase tracking-[0.18em] text-[#151515]/50"
+								>
+									Сообщение
+								</label>
+
+								<textarea
+									id="message"
+									name="message"
+									required
+									rows="3"
+									placeholder="Расскажите о вашем мероприятии..."
+									className="w-full resize-none border-b border-[#151515]/30 bg-transparent py-3 text-sm outline-none placeholder:text-[#151515]/40 focus:border-[#151515] transition-colors"
+								/>
+							</div>
+
+							{/* Privacy */}
+							<label className="flex cursor-pointer items-start gap-3 pt-2 text-[10px] leading-[1.5] text-[#151515]/60">
+								<input
+									type="checkbox"
+									name="privacy"
+									required
+									className="mt-[1px] h-3.5 w-3.5 cursor-pointer accent-[#151515]"
+								/>
+
+								<span>
+									Я согласен с{' '}
+									<a
+										href="/privacy"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="underline underline-offset-2 transition-opacity hover:opacity-60"
+									>
+										политикой конфиденциальности
+									</a>
+								</span>
+							</label>
+
+							{/* Submit */}
+							<button
+								type="submit"
+								disabled={status === 'sending'}
+								className="cursor-pointer group mt-4 flex w-full items-center justify-between border-b border-[#151515]/40 pb-3 pt-3 text-x2 uppercase tracking-[0.2em] transition-opacity hover:opacity-60 disabled:cursor-not-allowed disabled:opacity-50"
+							>
+								<span>
+									{status === 'sending' ? 'Отправка...' : 'Обсудить событие'}
+								</span>
+
+								<span className="text-lg transition-transform duration-300 group-hover:translate-x-2">
+									→
+								</span>
+							</button>
+
+							{/* Status */}
+							{status === 'success' && (
+								<div className="border border-[#151515]/20 p-4 text-xs leading-[1.6]">
+									Спасибо! Ваша заявка отправлена.
+									<br />
+									Мы свяжемся с вами в ближайшее время.
+								</div>
+							)}
+
+							{status === 'error' && (
+								<div className="border border-red-900/30 p-4 text-xs leading-[1.6]">
+									Не удалось отправить заявку.
+									<br />
+									Попробуйте ещё раз или свяжитесь с нами по телефону.
+								</div>
+							)}
+						</form>
 					</div>
 				</div>
 
