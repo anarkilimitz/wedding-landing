@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -8,7 +10,10 @@ import Testimonials from './components/Testimonials/Testimonials';
 import CTA from './components/CTA/CTA';
 import Footer from './components/Footer/Footer';
 
-function App() {
+// Политика конфиденциальности
+import Privacy from './pages/Privacy/Privacy';
+
+function Home() {
 	return (
 		<>
 			<Header />
@@ -21,9 +26,21 @@ function App() {
 				<Process />
 				<Testimonials />
 				<CTA />
-				<Footer />
 			</main>
+
+			<Footer />
 		</>
+	);
+}
+
+function App() {
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/privacy" element={<Privacy />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 

@@ -104,7 +104,9 @@ function Footer() {
 					<p>© 2026 Wedding Studio</p>
 
 					<a
-						href="#"
+						href="/privacy"
+						target="_blank"
+						rel="noopener noreferrer"
 						className="sm:text-right transition-opacity duration-300 hover:opacity-70"
 					>
 						Политика конфиденциальности

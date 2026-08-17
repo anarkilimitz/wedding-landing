@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import Menu from './Menu'
+import { useState } from 'react';
+import Menu from './Menu';
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev)
-  }
+	const toggleMenu = () => {
+		setIsMenuOpen((prev) => !prev);
+	};
 
-  const closeMenu = () => {
-    setIsMenuOpen(false)
-  }
+	const closeMenu = () => {
+		setIsMenuOpen(false);
+	};
 
-  return (
+	return (
 		<>
 			<header className="absolute inset-x-0 top-0 z-40">
 				<div className="mx-auto flex h-24 max-w-[1400px] items-center justify-between px-6 lg:px-10">
@@ -79,7 +79,7 @@ function Header() {
 					<div className="flex items-center gap-3">
 						<a
 							href="#contacts"
-							className="hidden rounded-full border border-[#151515]/40 px-5 py-3 text-[12px] transition-all duration-300 hover:bg-[#151515] hover:text-white sm:block"
+							className="hidden cursor-pointer rounded-full border border-[#151515]/40 px-5 py-3 text-[12px] transition-all duration-300 hover:bg-[#151515] hover:text-white sm:block"
 						>
 							Связаться с нами
 						</a>
@@ -89,7 +89,7 @@ function Header() {
 							onClick={toggleMenu}
 							aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
 							aria-expanded={isMenuOpen}
-							className="relative h-11 w-24"
+							className="group relative h-11 w-24 cursor-pointer"
 							style={{ perspective: '800px' }}
 						>
 							<span
@@ -101,7 +101,7 @@ function Header() {
 							>
 								{/* Front */}
 								<span
-									className="absolute inset-0 flex items-center justify-center rounded-full border border-[#151515]/40 bg-white/30 text-[11px] uppercase tracking-[0.18em]"
+									className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-full border border-[#151515]/40 bg-transparent text-[11px] uppercase tracking-[0.18em] transition-all duration-300 group-hover:bg-[#151515] group-hover:text-white"
 									style={{ backfaceVisibility: 'hidden' }}
 								>
 									Меню
@@ -109,7 +109,7 @@ function Header() {
 
 								{/* Back */}
 								<span
-									className="absolute inset-0 flex items-center justify-center rounded-full bg-[#151515] text-[11px] uppercase tracking-[0.18em] text-white"
+									className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-full bg-[#151515] text-[11px] uppercase tracking-[0.18em] text-white"
 									style={{
 										backfaceVisibility: 'hidden',
 										transform: 'rotateY(180deg)',
@@ -128,4 +128,4 @@ function Header() {
 	);
 }
 
-export default Header
+export default Header;
