@@ -5,6 +5,7 @@ import Services from './components/Services/Services';
 import Portfolio from './components/Portfolio/Portfolio';
 import Process from './components/Process/Process';
 import Testimonials from './components/Testimonials/Testimonials';
+import CTA from './components/CTA/CTA';
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				<Portfolio />
 				<Process />
 				<Testimonials />
+				<CTA />
 			</main>
 		</>
 	);
