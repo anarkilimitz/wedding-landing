@@ -14,3 +14,26 @@ body::-webkit-scrollbar {
 	background: rgba(181, 154, 114, 0.75);
 	color: #151515;
 }
+
+:root {
+	--color-page: #ebe0cf;
+	--color-text: #151515;
+	--color-accent: #b59a72;
+	--color-muted: #8d7b61;
+}
+
+/* Form autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	background-color: var(--color-page) !important;
+	-webkit-box-shadow: 0 0 0 1000px var(--color-page) inset !important;
+	-webkit-text-fill-color: var(--color-text) !important;
+	caret-color: var(--color-text);
+}

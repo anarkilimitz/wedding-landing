@@ -100,7 +100,7 @@ function CTA() {
 		<section
 			ref={sectionRef}
 			id="contact"
-			className="bg-[#b59a72] px-6 py-24 text-[#151515] lg:px-10 lg:py-40"
+			className="bg-[var(--color-page)] px-6 py-24 text-[#151515] lg:px-10 lg:py-40"
 		>
 			<div className="mx-auto max-w-[1400px]">
 				{/* Header */}
@@ -140,7 +140,7 @@ function CTA() {
 							<div>
 								<label
 									htmlFor="name"
-									className="mb-2 block text-[10px] uppercase tracking-[0.18em] text-[#151515]/50"
+									className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-text)]/50"
 								>
 									Имя
 								</label>
@@ -151,7 +151,7 @@ function CTA() {
 									type="text"
 									required
 									placeholder="Ваше имя"
-									className="w-full border-b border-[#151515]/30 bg-transparent py-3 text-sm outline-none placeholder:text-[#151515]/40 focus:border-[#151515] transition-colors"
+									className="w-full border-b border-[var(--color-text)]/30 bg-[var(--color-page)] py-3 text-sm outline-none placeholder:text-[var(--color-text)]/40 transition-colors focus:border-[var(--color-text)]"
 								/>
 							</div>
 
@@ -159,7 +159,7 @@ function CTA() {
 							<div>
 								<label
 									htmlFor="phone"
-									className="mb-2 block text-[10px] uppercase tracking-[0.18em] text-[#151515]/50"
+									className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-text)]/50"
 								>
 									Телефон
 								</label>
@@ -170,7 +170,7 @@ function CTA() {
 									type="tel"
 									required
 									placeholder="+7 999 999 99 99"
-									className="w-full border-b border-[#151515]/30 bg-transparent py-3 text-sm outline-none placeholder:text-[#151515]/40 focus:border-[#151515] transition-colors"
+									className="w-full border-b border-[var(--color-text)]/30 bg-[var(--color-page)] py-3 text-sm outline-none placeholder:text-[var(--color-text)]/40 transition-colors focus:border-[var(--color-text)]"
 								/>
 							</div>
 
@@ -178,7 +178,7 @@ function CTA() {
 							<div>
 								<label
 									htmlFor="email"
-									className="mb-2 block text-[10px] uppercase tracking-[0.18em] text-[#151515]/50"
+									className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-text)]/50"
 								>
 									Email
 								</label>
@@ -189,7 +189,7 @@ function CTA() {
 									type="email"
 									required
 									placeholder="your@email.ru"
-									className="w-full border-b border-[#151515]/30 bg-transparent py-3 text-sm outline-none placeholder:text-[#151515]/40 focus:border-[#151515] transition-colors"
+									className="w-full border-b border-[var(--color-text)]/30 bg-[var(--color-page)] py-3 text-sm outline-none placeholder:text-[var(--color-text)]/40 transition-colors focus:border-[var(--color-text)]"
 								/>
 							</div>
 
@@ -197,7 +197,7 @@ function CTA() {
 							<div>
 								<label
 									htmlFor="event"
-									className="mb-2 block text-[10px] uppercase tracking-[0.18em] text-[#151515]/50"
+									className="mb-2 block text-sm uppercase text-[var(--color-text)]/50"
 								>
 									Тип мероприятия
 								</label>
@@ -207,18 +207,43 @@ function CTA() {
 									name="event"
 									required
 									defaultValue=""
-									className="w-full border-b border-[#151515]/30 bg-transparent py-3 text-sm outline-none focus:border-[#151515] transition-colors"
+									className="w-full border-b border-[var(--color-text)]/30 bg-[var(--color-page)] py-3 text-sm outline-none focus:border-[var(--color-text)] transition-colors"
 								>
-									<option value="" disabled>
+									<option
+										value=""
+										disabled
+										className="bg-[var(--color-page)] text-[var(--color-text)]"
+									>
 										Выберите тип
 									</option>
 
-									<option value="Свадьба">Свадьба</option>
-									<option value="Частное событие">Частное событие</option>
-									<option value="Корпоративное мероприятие">
+									<option
+										value="Свадьба"
+										className="bg-[var(--color-page)] text-[var(--color-text)]"
+									>
+										Свадьба
+									</option>
+
+									<option
+										value="Частное событие"
+										className="bg-[var(--color-page)] text-[var(--color-text)]"
+									>
+										Частное событие
+									</option>
+
+									<option
+										value="Корпоративное мероприятие"
+										className="bg-[var(--color-page)] text-[var(--color-text)]"
+									>
 										Корпоративное мероприятие
 									</option>
-									<option value="Концепция и декор">Концепция и декор</option>
+
+									<option
+										value="Концепция и декор"
+										className="bg-[var(--color-page)] text-[var(--color-text)]"
+									>
+										Концепция и декор
+									</option>
 								</select>
 							</div>
 
@@ -226,7 +251,7 @@ function CTA() {
 							<div>
 								<label
 									htmlFor="message"
-									className="mb-2 block text-[10px] uppercase tracking-[0.18em] text-[#151515]/50"
+									className="mb-2 block text-sm uppercase tracking-[0.18em] text-[var(--color-text)]/50"
 								>
 									Сообщение
 								</label>
@@ -237,7 +262,7 @@ function CTA() {
 									required
 									rows="3"
 									placeholder="Расскажите о вашем мероприятии..."
-									className="w-full resize-none border-b border-[#151515]/30 bg-transparent py-3 text-sm outline-none placeholder:text-[#151515]/40 focus:border-[#151515] transition-colors"
+									className="w-full border-b border-[var(--color-text)]/30 bg-[var(--color-page)] py-3 text-sm outline-none placeholder:text-[var(--color-text)]/40 transition-colors focus:border-[var(--color-text)]"
 								/>
 							</div>
 
@@ -247,7 +272,7 @@ function CTA() {
 									type="checkbox"
 									name="privacy"
 									required
-									className="mt-[1px] h-3.5 w-3.5 cursor-pointer accent-[#151515]"
+									className="h-4 w-4 appearance-none rounded-sm border border-[#151515]/40 bg-[var(--color-page)] checked:bg-[#7fb974]"
 								/>
 
 								<span>
