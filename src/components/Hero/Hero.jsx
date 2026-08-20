@@ -86,12 +86,12 @@ function Hero() {
 
 			{/* Content */}
 			<div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-end px-6 pb-10 lg:px-10 lg:pb-14">
-				<div className="max-w-5xl">
+				<div className="max-w-2xl">
 					<p className="hero-eyebrow mb-6 text-[10px] uppercase tracking-[0.3em] text-white">
 						Организация свадеб и мероприятий
 					</p>
 
-					<h1 className="max-w-4xl overflow-hidden font-serif text-6xl leading-[0.9] tracking-[-0.05em] text-white sm:text-7xl md:text-8xl lg:text-[clamp(80px,10vw,150px)]">
+					<h1 className="max-w-2xl overflow-hidden font-serif text-6xl leading-[0.9] tracking-[-0.05em] text-white sm:text-5xl md:text-7xl lg:text-[clamp(80px,8vw,150px)]">
 						<span className="hero-title-line block">Создаём моменты,</span>
 
 						<span className="hero-title-line block">которые остаются</span>
@@ -99,16 +99,16 @@ function Hero() {
 				</div>
 
 				<div className="hero-bottom mt-10 flex flex-col justify-between gap-8 border-t border-white/30 pt-5 text-white sm:flex-row sm:items-end">
-					<p className="max-w-sm text-sm leading-relaxed text-white/80">
+					<p className="max-w-sm text-sm leading-relaxed text-white/90">
 						Берём на себя всё — от первой идеи до последнего гостя, создавая
 						события, которые хочется прожить снова.
 					</p>
 
 					<a
 						href="#contact"
-						className="group flex items-center gap-4 text-[11px] uppercase tracking-[0.2em]"
+						className="group flex items-center gap-4 text-[16px] uppercase tracking-[0.2em]"
 					>
-						<span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/50 transition-all duration-500 group-hover:bg-white group-hover:text-[#151515]">
+						<span className="flex h-12 w-12 items-center justify-center rounded-full border border-white transition-all duration-500 group-hover:bg-white group-hover:text-[#151515]">
 							↗
 						</span>
 
