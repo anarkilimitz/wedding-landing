@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade } from 'swiper/modules';
+import { Autoplay, EffectFade } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -104,12 +104,16 @@ function Testimonials() {
 				</div>
 
 				<Swiper
-					modules={[EffectFade]}
+					modules={[Autoplay, EffectFade]}
 					effect="fade"
 					fadeEffect={{
 						crossFade: true,
 					}}
 					speed={800}
+					autoplay={{
+						delay: 2000,
+						disableOnInteraction: false,
+					}}
 					loop
 					onSwiper={(swiper) => {
 						swiperRef.current = swiper;
@@ -163,7 +167,7 @@ function Testimonials() {
 
 				{/* Controls */}
 				<div className="testimonials-controls mt-10 flex items-center justify-between border-t border-[#151515]/20 pt-5">
-					<div className="text-[10px] uppercase tracking-[0.2em] text-[#151515]/40">
+					<div className="text-[16px] uppercase tracking-[0.2em] text-[#151515]/90">
 						Листайте отзывы
 					</div>
 
