@@ -99,7 +99,7 @@ function Hero() {
 			{/* Background image */}
 			<div className="absolute inset-0">
 				<img
-					src="/images/hero-wedding.jpg"
+					src={hero?.image || '/images/hero-wedding.jpg'}
 					alt="Свадебная церемония"
 					className="hero-image h-full w-full object-cover"
 				/>
