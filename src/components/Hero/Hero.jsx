@@ -1,6 +1,5 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { useEffect, useState } from 'react';
 
 import { apiFetch } from '../../shared/api';
 
@@ -117,7 +116,7 @@ function Hero() {
 
 					<h1 className="max-w-2xl overflow-hidden font-serif text-6xl leading-[0.9] tracking-[-0.05em] text-white sm:text-5xl md:text-7xl lg:text-[clamp(80px,8vw,150px)]">
 						<span className="hero-title-line block">
-							{hero?.title?.split('\\n')[0] || 'Создаём моменты,'}
+							{hero?.title?.split('\n')[0] || 'Создаём моменты,'}
 						</span>
 
 						<span className="hero-title-line block">
@@ -132,7 +131,7 @@ function Hero() {
 					</p>
 
 					<a
-						href={hero?.primaryButtonUrl || "#contact"}
+						href={hero?.primaryButtonUrl || '#contact'}
 						className="group flex items-center gap-4 text-[16px] uppercase tracking-[0.2em]"
 					>
 						<span className="flex h-12 w-12 items-center justify-center rounded-full border border-white transition-all duration-500 group-hover:bg-white group-hover:text-[#151515]">
