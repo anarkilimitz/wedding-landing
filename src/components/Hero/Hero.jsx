@@ -90,6 +90,8 @@ function Hero() {
 		return () => ctx.revert();
 	}, []);
 
+	const titleLines = hero?.title?.split('\n') || [];
+
 	return (
 		<section
 			ref={heroRef}
