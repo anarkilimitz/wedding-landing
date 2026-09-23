@@ -1,8 +1,32 @@
 import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { useEffect, useState } from 'react';
+
+import { apiFetch } from '../../shared/api';
 
 function Hero() {
 	const heroRef = useRef(null);
+	const [hero, setHero] = useState(null);
+
+	useEffect(() => {
+		async function loadHero() {
+			try {
+				const response = await apiFetch('/content/hero');
+
+				if (!response.ok) {
+					throw new Error('Не удалось загрузить Hero');
+				}
+
+				const data = await response.json();
+
+				setHero(data);
+			} catch (error) {
+				console.error('Не удалось загрузить Hero из CMS:', error);
+			}
+		}
+
+		loadHero();
+	}, []);
 
 	useLayoutEffect(() => {
 		const ctx = gsap.context(() => {
@@ -88,31 +112,34 @@ function Hero() {
 			<div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-end px-6 pb-10 lg:px-10 lg:pb-14">
 				<div className="max-w-2xl">
 					<p className="hero-eyebrow mb-6 text-[10px] uppercase tracking-[0.3em] text-white">
-						Организация свадеб и мероприятий
+						{hero?.eyebrow || 'Организация свадеб и мероприятий'}
 					</p>
 
 					<h1 className="max-w-2xl overflow-hidden font-serif text-6xl leading-[0.9] tracking-[-0.05em] text-white sm:text-5xl md:text-7xl lg:text-[clamp(80px,8vw,150px)]">
-						<span className="hero-title-line block">Создаём моменты,</span>
+						<span className="hero-title-line block">
+							{hero?.title?.split('\\n')[0] || 'Создаём моменты,'}
+						</span>
 
-						<span className="hero-title-line block">которые остаются</span>
+						<span className="hero-title-line block">
+							{hero?.title?.split('\\n')[1] || 'которые остаются'}
+						</span>
 					</h1>
 				</div>
 
 				<div className="hero-bottom mt-10 flex flex-col justify-between gap-8 border-t border-white/30 pt-5 text-white sm:flex-row sm:items-end">
 					<p className="max-w-sm text-sm leading-relaxed text-white/90">
-						Берём на себя всё — от первой идеи до последнего гостя, создавая
-						события, которые хочется прожить снова.
+						{hero?.description || 'Берём на себя всё — от первой идеи до последнего гостя, создавая события, которые хочется прожить снова.'}
 					</p>
 
 					<a
-						href="#contact"
+						href={hero?.primaryButtonUrl || "#contact"}
 						className="group flex items-center gap-4 text-[16px] uppercase tracking-[0.2em]"
 					>
 						<span className="flex h-12 w-12 items-center justify-center rounded-full border border-white transition-all duration-500 group-hover:bg-white group-hover:text-[#151515]">
 							↗
 						</span>
 
-						<span>Обсудить проект</span>
+						<span>{hero?.primaryButtonText || 'Обсудить проект'}</span>
 					</a>
 				</div>
 			</div>
